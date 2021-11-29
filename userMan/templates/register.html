@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Register Page
+{% endblock %}
+
+
+{% block content %}
+<body class="text-center">
+    {% if form.errors != {} %}
+    <div class="alert alert-warning alert-dismissible" role="alert" id="alertaInreg">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Atentie!</strong> Completati datele corespunzator!
+      </div>
+    {% endif %}
+ <div class="container" id="containerRegister">
+
+    <h2>Please create your account</h2>
+    <br>
+    <form method="POST" class="form-register" style="color: white;" id="formular">
+        {{ form.hidden_tag() }}
+        {{ form.username.label() }}
+        {{ form.username(class="form-control", placeholder="Username") }}
+        {{ form.email.label() }}
+        {{ form.email(class="form-control", placeholder="Email Adress") }}
+        {{ form.firstName.label() }}
+        {{ form.firstName(class="form-control", placeholder="First Name") }}
+        {{ form.lastName.label() }}
+        {{ form.lastName(class="form-control", placeholder="Last Name") }}
+        {{ form.password1.label() }}
+        {{ form.password1(class="form-control", placeholder="Password") }}
+        {{ form.password2.label() }}
+        {{ form.password2(class="form-control", placeholder="Confirm Password") }}
+        <br>
+        {{ form.submit(class="btn btn-lg btn-block btn-outline-primary", id="butonSubmitUsers")}}
+    </form>
+    <br>
+    <a href="{{ url_for('logIn_page')}}" class="btn text-light">Already have an account? Log in</a>
+</div> 
+</body>
+
+
+{% endblock %}

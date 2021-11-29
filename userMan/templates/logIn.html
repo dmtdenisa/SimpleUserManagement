@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Log In existing user
+
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+ <div class="container">
+    <h2>Log In</h2>
+    <br>
+    <form method="POST" class="form-register" style="color: white;" >
+        {{ login_form.hidden_tag() }}
+        {{ login_form.usernameL.label() }}
+        {{ login_form.usernameL(class="form-control", placeholder="Username") }}
+        {{ login_form.passwordL.label() }}
+        {{ login_form.passwordL(class="form-control", placeholder="Password") }}
+        <br>
+        {{ login_form.submitL(class="btn btn-lg btn-block btn-outline-primary")}}
+    </form>
+    <br>
+    <a href="{{ url_for('register_page')}}" class="btn text-light">Don't have an account? Sign Up</a>
+</div> 
+</body>
+{% endblock %}
